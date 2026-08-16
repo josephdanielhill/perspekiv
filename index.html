@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perspektiv — The Agentic Creative Agency</title>
+  <style>
+    :root {
+      --bg-light: #ffffff;
+      --bg-off-white: #f5f5f7;
+      --bg-dark: #000000;
+      --text-heading: #1d1d1f;
+      --text-body: #1d1d1f;
+      --text-muted: #6e6e73;
+      --text-on-dark: #ffffff;
+      --accent-primary: #533afd;
+      --accent-secondary: #0071e3;
+      --border-light: #e5edf5;
+      --font-display: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg-light);
+      color: var(--text-body);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    .section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 120px 24px;
+    }
+
+    .section-dark {
+      background: var(--bg-dark);
+      color: var(--text-on-dark);
+    }
+
+    .section-off-white {
+      background: var(--bg-off-white);
+    }
+
+    .content {
+      max-width: 1080px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      justify-content: center;
+      padding: 80px 24px;
+      position: relative;
+    }
+
+    .hero-logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 64px;
+    }
+
+    .hero-logo-main {
+      font-family: var(--font-display);
+      font-size: 80px;
+      font-weight: 600;
+      color: var(--text-heading);
+      letter-spacing: -2.5px;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .hero-logo-k {
+      display: inline-block;
+      transform: scaleX(-1);
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .hero-logo-sub {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--text-muted);
+      letter-spacing: -0.22px;
+      margin-top: 12px;
+      font-feature-settings: 'ss01' on;
+    }
+
+    .hero-divider {
+      width: 40px;
+      height: 3px;
+      background: var(--accent-primary);
+      border-radius: 2px;
+      margin: 48px auto;
+    }
+
+    .hero-tagline {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 300;
+      color: var(--text-body);
+      letter-spacing: -0.22px;
+      line-height: 1.4;
+      text-align: center;
+      max-width: 640px;
+    }
+
+    .hero-cta {
+      margin-top: 48px;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-body);
+      font-size: 17px;
+      font-weight: 500;
+      color: #fff;
+      background: var(--accent-primary);
+      padding: 10px 22px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+
+    .btn-primary:hover { background: #4434d4; }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-body);
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--accent-link, #0066cc);
+      background: transparent;
+      padding: 10px 22px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: opacity 0.2s ease;
+    }
+
+    .btn-ghost:hover { opacity: 0.7; }
+
+    /* ── SERVICES ── */
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 48px;
+      font-weight: 300;
+      color: var(--text-heading);
+      letter-spacing: -0.28px;
+      line-height: 1.1;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .section-dark .section-title { color: var(--text-on-dark); }
+
+    .section-subtitle {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 300;
+      color: var(--text-body);
+      letter-spacing: -0.22px;
+      line-height: 1.4;
+      text-align: center;
+      max-width: 640px;
+      margin-bottom: 64px;
+    }
+
+    .section-dark .section-subtitle { color: rgba(255,255,255,0.7); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      width: 100%;
+    }
+
+    .service-card {
+      background: var(--bg-light);
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      padding: 40px 32px;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      box-shadow: rgba(50,50,93,0.25) 0px 30px 45px -30px, rgba(0,0,0,0.1) 0px 18px 36px -18px;
+    }
+
+    .service-card:hover {
+      box-shadow: rgba(50,50,93,0.25) 0px 30px 60px -20px, rgba(0,0,0,0.15) 0px 18px 40px -18px;
+      transform: translateY(-2px);
+    }
+
+    .service-number {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent-primary);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .service-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 600;
+      color: #061b31;
+      letter-spacing: -0.22px;
+      margin-bottom: 12px;
+    }
+
+    .service-desc {
+      font-size: 15px;
+      line-height: 1.5;
+      color: #6e6e73;
+    }
+
+    /* ── WHY ── */
+    .why-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      width: 100%;
+      align-items: center;
+    }
+
+    .why-left { }
+
+    .why-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent-primary);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .why-heading {
+      font-family: var(--font-display);
+      font-size: 40px;
+      font-weight: 300;
+      color: var(--text-on-dark);
+      letter-spacing: -0.28px;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+
+    .why-text {
+      font-size: 17px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .why-right {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .why-point {
+      border-left: 2px solid var(--accent-primary);
+      padding-left: 20px;
+    }
+
+    .why-point-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text-on-dark);
+      margin-bottom: 6px;
+    }
+
+    .why-point-desc {
+      font-size: 15px;
+      line-height: 1.5;
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      text-align: center;
+    }
+
+    .cta-heading {
+      font-family: var(--font-display);
+      font-size: 56px;
+      font-weight: 300;
+      color: var(--text-heading);
+      letter-spacing: -0.28px;
+      line-height: 1.07;
+      margin-bottom: 16px;
+    }
+
+    .cta-sub {
+      font-size: 22px;
+      font-weight: 300;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      padding: 48px 24px;
+      text-align: center;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .footer-text {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .hero-logo-main { font-size: 48px; letter-spacing: -1.5px; }
+      .hero-tagline { font-size: 22px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .section-title { font-size: 32px; }
+      .cta-heading { font-size: 36px; }
+      .why-columns { grid-template-columns: 1fr; gap: 48px; }
+      .why-heading { font-size: 32px; }
+      .section { padding: 80px 24px; }
+      .hero-cta { flex-direction: column; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-logo-main { font-size: 36px; letter-spacing: -1px; }
+      .hero-logo-sub { font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="section hero">
+    <div class="content">
+      <div class="hero-logo">
+        <div class="hero-logo-main">PERSPEKTIV</div>
+        <div class="hero-logo-sub">The Agentic Creative Agency for Joseph Hill</div>
+      </div>
+      <div class="hero-divider"></div>
+      <p class="hero-tagline">
+        AI-native creative work that looks intentional <br class="hide-mobile">and reads like it took no effort.
+      </p>
+      <div class="hero-cta">
+        <a href="#" class="btn-primary">Get in touch</a>
+        <a href="#" class="btn-ghost">See our work →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section section-off-white">
+    <div class="content">
+      <h2 class="section-title">What we do</h2>
+      <p class="section-subtitle">
+        Every surface, every pixel, every word —<br>designed with intention, delivered without friction.
+      </p>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-number">01</div>
+          <h3 class="service-title">Brand Identity</h3>
+          <p class="service-desc">Logos, type systems, colour palettes, and visual languages that hold together at every touchpoint.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-number">02</div>
+          <h3 class="service-title">Landing Pages</h3>
+          <p class="service-desc">One-page sites and product pages that tell one story, make one argument, drive one outcome.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-number">03</div>
+          <h3 class="service-title">Design Systems</h3>
+          <p class="service-desc">Tokenised, documented, composable design systems engineered for speed and consistency.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY PERSPEKTIV -->
+  <section class="section section-dark">
+    <div class="content">
+      <div class="why-columns">
+        <div class="why-left">
+          <div class="why-label">Why Perspektiv</div>
+          <h2 class="why-heading">AI doesn't design.<br>People do.</h2>
+          <p class="why-text">
+            We use AI as our loom, our lathe, our brush — not as our voice. 
+            Every output is reviewed, refined, and signed off by a human who 
+            cares about the difference between good enough and intentional.
+          </p>
+        </div>
+        <div class="why-right">
+          <div class="why-point">
+            <div class="why-point-title">Surface-first, not template-first</div>
+            <div class="why-point-desc">We name the surface archetype before writing a single line — Monitor, Operate, Decide. The structure follows the interaction, not the other way around.</div>
+          </div>
+          <div class="why-point">
+            <div class="why-point-title">Anti-slop by design</div>
+            <div class="why-point-desc">We score every deliverable against a 10-point slop diagnostic. If it scores above 3, it doesn't ship. No gradients that pretend to be depth. No feature grids that pretend to be strategy.</div>
+          </div>
+          <div class="why-point">
+            <div class="why-point-title">Built for one person</div>
+            <div class="why-point-desc">This agency exists for exactly one client: Joseph Hill. Every pixel, every word, every decision serves that relationship.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta-section">
+    <div class="content">
+      <h2 class="cta-heading">Let's build something intentional.</h2>
+      <p class="cta-sub">One brief. One outcome. No filler.</p>
+      <div class="cta-buttons">
+        <a href="#" class="btn-primary">Start a project</a>
+        <a href="#" class="btn-ghost">Read the manifesto →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p class="footer-text">Perspektiv — The Agentic Creative Agency for Joseph Hill</p>
+  </footer>
+
+</body>
+</html>
