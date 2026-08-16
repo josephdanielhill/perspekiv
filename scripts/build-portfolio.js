@@ -128,6 +128,7 @@ function readEntries() {
       status: meta.status || 'launched',
       models: meta.models || [],
       notes: meta.notes || [],
+      tools: meta.tools || [],
       slug: file.replace('.md', ''),
     });
   }
@@ -162,6 +163,10 @@ function cardHTML(entry) {
           ${entry.models.length > 0 ? `
           <div class="portfolio-card-models">
             ${entry.models.map(m => `<span class="portfolio-card-model-badge">${escapeHtml(m)}</span>`).join('')}
+          </div>` : ''}
+          ${entry.tools.length > 0 ? `
+          <div class="portfolio-card-tools">
+            ${entry.tools.map(t => `<span class="portfolio-card-tool-badge">${escapeHtml(t)}</span>`).join('')}
           </div>` : ''}
           ${entry.notes.length > 0 ? `
           <div class="portfolio-card-notes-count">${entry.notes.length} ${entry.notes.length === 1 ? 'fact' : 'facts'}</div>` : ''}
@@ -336,6 +341,22 @@ function generateProjectPage(entry) {
       border-radius: 20px;
     }
 
+    .project-tool-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .project-tool-badge {
+      font-size: 13px;
+      font-weight: 500;
+      color: #c41e3a;
+      border: 1.5px solid #c41e3a;
+      background: transparent;
+      padding: 4px 14px;
+      border-radius: 16px;
+    }
+
     .project-notes-list {
       list-style: disc;
       padding-left: 20px;
@@ -375,6 +396,14 @@ function generateProjectPage(entry) {
       <h3 class="project-meta-heading">Models Used</h3>
       <div class="project-model-list">
         ${entry.models.map(m => `<span class="project-model-badge">${escapeHtml(m)}</span>`).join('\n        ')}
+      </div>
+    </div>` : ''}
+
+    ${entry.tools.length > 0 ? `
+    <div class="project-meta-section">
+      <h3 class="project-meta-heading">Tools Used</h3>
+      <div class="project-tool-list">
+        ${entry.tools.map(t => `<span class="project-tool-badge">${escapeHtml(t)}</span>`).join('\n        ')}
       </div>
     </div>` : ''}
 
