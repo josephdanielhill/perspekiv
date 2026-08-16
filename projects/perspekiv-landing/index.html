@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perspektiv Landing Page – Perspektiv</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <meta name="robots" content="noindex">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Ubuntu', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #fff;
+      color: #1d1d1f;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .project-nav {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 32px 24px 0;
+    }
+
+    .project-nav a {
+      color: #6e6e73;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 400;
+      transition: color 0.2s;
+    }
+
+    .project-nav a:hover {
+      color: #1d1d1f;
+    }
+
+    .project-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    .project-hero-image {
+      width: 100%;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 48px;
+      background: #f5f5f7;
+      border: 1px solid #e8e8ed;
+    }
+
+    .project-hero-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .project-tag {
+      font-size: 13px;
+      font-weight: 500;
+      color: #533afd;
+      background: rgba(83, 58, 253, 0.08);
+      padding: 4px 14px;
+      border-radius: 20px;
+    }
+
+    .project-title {
+      font-size: 40px;
+      font-weight: 700;
+      color: #1d1d1f;
+      line-height: 1.15;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .project-date {
+      font-size: 15px;
+      color: #6e6e73;
+      margin-bottom: 32px;
+    }
+
+    .project-body-text {
+      font-size: 18px;
+      line-height: 1.7;
+      color: #333;
+      margin-bottom: 24px;
+    }
+
+    .project-body-text:last-child {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 640px) {
+      .project-title { font-size: 28px; }
+      .project-container { padding: 32px 20px 60px; }
+      .project-body-text { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="project-nav">
+    <a href="/">&larr; Back to Perspektiv</a>
+  </nav>
+
+  <article class="project-container">
+        <div class="project-hero-image">
+        <img src="/portfolio/perspekiv-landing/screenshot.png" alt="Perspektiv Landing Page">
+      </div>
+
+    <div class="project-tags">
+      <span class="project-tag">brand</span>
+        <span class="project-tag">landing-page</span>
+    </div>
+
+    <h1 class="project-title">Perspektiv Landing Page</h1>
+    <div class="project-date">2026-08-16</div>
+
+    <p class="project-body-text">The first project shipped under the Perspektiv banner. A single-page landing site<br>that communicates the agency's philosophy: AI-native creative work that looks<br>intentional and reads like it took no effort.</p>
+        <p class="project-body-text">The type system pairs a custom logo (Leckerli One + Nunito) with Ubuntu body text<br>across the page. Ruby red dot on the 'i' became the brand's signature mark.</p>
+  </article>
+</body>
+</html>
