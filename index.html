@@ -77,16 +77,6 @@
       margin-bottom: 16px;
     }
 
-    .hero-logo-sub {
-      font-family: var(--font-display);
-      font-size: 18px;
-      font-weight: 300;
-      color: var(--text-muted);
-      letter-spacing: -0.22px;
-      margin-top: 12px;
-      font-feature-settings: 'ss01' on;
-    }
-
     .hero-divider {
       width: 40px;
       height: 3px;
@@ -105,47 +95,6 @@
       text-align: center;
       max-width: 640px;
     }
-
-    .hero-cta {
-      margin-top: 48px;
-      display: flex;
-      gap: 16px;
-      align-items: center;
-    }
-
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: var(--font-body);
-      font-size: 17px;
-      font-weight: 500;
-      color: #fff;
-      background: var(--accent-primary);
-      padding: 10px 22px;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background 0.2s ease;
-    }
-
-    .btn-primary:hover { background: #4434d4; }
-
-    .btn-ghost {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-family: var(--font-body);
-      font-size: 17px;
-      font-weight: 500;
-      color: var(--accent-link, #0066cc);
-      background: transparent;
-      padding: 10px 22px;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: opacity 0.2s ease;
-    }
-
-    .btn-ghost:hover { opacity: 0.7; }
 
     /* ── SERVICES ── */
     .section-title {
@@ -282,32 +231,68 @@
       color: rgba(255,255,255,0.6);
     }
 
-    /* ── CTA ── */
-    .cta-section {
-      text-align: center;
+    /* ── PORTFOLIO ── */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      width: 100%;
     }
 
-    .cta-heading {
-      font-family: var(--font-display);
-      font-size: 56px;
-      font-weight: 300;
-      color: var(--text-heading);
-      letter-spacing: -0.28px;
-      line-height: 1.07;
+    .portfolio-card {
+      background: var(--bg-light);
+      border: 1px solid var(--border-light);
+      border-radius: 16px;
+      padding: 64px 48px;
+      text-align: center;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    .portfolio-card:hover {
+      box-shadow: rgba(50,50,93,0.25) 0px 30px 60px -20px, rgba(0,0,0,0.15) 0px 18px 40px -18px;
+      transform: translateY(-2px);
+    }
+
+    .portfolio-card-icon {
+      font-size: 40px;
       margin-bottom: 16px;
     }
 
-    .cta-sub {
+    .portfolio-card-title {
+      font-family: var(--font-display);
       font-size: 22px;
-      font-weight: 300;
-      color: var(--text-muted);
-      margin-bottom: 40px;
+      font-weight: 600;
+      color: var(--text-heading);
+      margin-bottom: 8px;
     }
 
-    .cta-buttons {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
+    .portfolio-card-desc {
+      font-size: 15px;
+      line-height: 1.5;
+      color: var(--text-muted);
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .portfolio-empty {
+      text-align: center;
+      padding: 80px 24px;
+      border: 2px dashed var(--border-light);
+      border-radius: 16px;
+    }
+
+    .portfolio-empty h3 {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .portfolio-empty p {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.5;
     }
 
     /* ── FOOTER ── */
@@ -332,12 +317,10 @@
       .why-columns { grid-template-columns: 1fr; gap: 48px; }
       .why-heading { font-size: 32px; }
       .section { padding: 80px 24px; }
-      .hero-cta { flex-direction: column; }
     }
 
     @media (max-width: 480px) {
       .hero-logo-img { max-width: 320px; }
-      .hero-logo-sub { font-size: 14px; }
     }
   </style>
 </head>
@@ -347,17 +330,12 @@
   <section class="section hero">
     <div class="content">
       <div class="hero-logo">
-        <img src="logo.png" alt="Perspektiv — The Agentic Creative Agency for Joseph Hill" class="hero-logo-img">
-        <div class="hero-logo-sub">The Agentic Creative Agency for Joseph Hill</div>
+        <img src="logo.png" alt="Perspektiv" class="hero-logo-img">
       </div>
       <div class="hero-divider"></div>
       <p class="hero-tagline">
         AI-native creative work that looks intentional <br class="hide-mobile">and reads like it took no effort.
       </p>
-      <div class="hero-cta">
-        <a href="#" class="btn-primary">Get in touch</a>
-        <a href="#" class="btn-ghost">See our work →</a>
-      </div>
     </div>
   </section>
 
@@ -411,22 +389,26 @@
             <div class="why-point-desc">We score every deliverable against a 10-point slop diagnostic. If it scores above 3, it doesn't ship. No gradients that pretend to be depth. No feature grids that pretend to be strategy.</div>
           </div>
           <div class="why-point">
-            <div class="why-point-title">Built for one person</div>
-            <div class="why-point-desc">This agency exists for exactly one client: Joseph Hill. Every pixel, every word, every decision serves that relationship.</div>
+            <div class="why-point-title">Built for one</div>
+            <div class="why-point-desc">This agency exists for exactly one client. Every pixel, every word, every decision serves that relationship.</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="section cta-section">
+  <!-- PORTFOLIO -->
+  <section class="section section-off-white">
     <div class="content">
-      <h2 class="cta-heading">Let's build something intentional.</h2>
-      <p class="cta-sub">One brief. One outcome. No filler.</p>
-      <div class="cta-buttons">
-        <a href="#" class="btn-primary">Start a project</a>
-        <a href="#" class="btn-ghost">Read the manifesto →</a>
+      <h2 class="section-title">our work</h2>
+      <p class="section-subtitle">
+        Every project we ship, signed off and published here.
+      </p>
+      <div class="portfolio-grid">
+        <div class="portfolio-empty">
+          <h3>Nothing here yet</h3>
+          <p>Completed projects will appear here automatically —<br>this page updates every time we ship something new.</p>
+        </div>
       </div>
     </div>
   </section>
