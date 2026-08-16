@@ -238,16 +238,15 @@
     .portfolio-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 24px;
+      gap: 32px;
       width: 100%;
     }
 
     .portfolio-card {
       background: var(--bg-light);
       border: 1px solid var(--border-light);
-      border-radius: 16px;
-      padding: 64px 48px;
-      text-align: center;
+      border-radius: 20px;
+      overflow: hidden;
       transition: box-shadow 0.3s ease, transform 0.3s ease;
     }
 
@@ -256,25 +255,60 @@
       transform: translateY(-2px);
     }
 
-    .portfolio-card-icon {
-      font-size: 40px;
-      margin-bottom: 16px;
+    .portfolio-card-image {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: var(--bg-off-white);
+    }
+
+    .portfolio-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .portfolio-card-body {
+      padding: 32px 40px;
+    }
+
+    .portfolio-card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .portfolio-card-tag {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--accent-primary);
+      background: rgba(83, 58, 253, 0.08);
+      padding: 4px 12px;
+      border-radius: 20px;
+      letter-spacing: 0.02em;
     }
 
     .portfolio-card-title {
       font-family: var(--font-display);
-      font-size: 22px;
+      font-size: 24px;
       font-weight: 600;
       color: var(--text-heading);
       margin-bottom: 8px;
     }
 
+    .portfolio-card-date {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
     .portfolio-card-desc {
       font-size: 15px;
-      line-height: 1.5;
+      line-height: 1.6;
       color: var(--text-muted);
-      max-width: 480px;
-      margin: 0 auto;
+      max-width: 560px;
     }
 
     .portfolio-empty {
@@ -408,10 +442,23 @@
         Every project we ship, signed off and published here.
       </p>
       <div class="portfolio-grid">
-        <div class="portfolio-empty">
-          <h3>Nothing here yet</h3>
-          <p>Completed projects will appear here automatically —<br>this page updates every time we ship something new.</p>
+        <!-- PORTFOLIO_START -->
+
+        <div class="portfolio-card">
+          <div class="portfolio-card-image">
+            <img src="/portfolio/perspekiv-landing/screenshot.png" alt="Perspektiv Landing Page" loading="lazy">
+          </div>
+          <div class="portfolio-card-body">
+            <div class="portfolio-card-tags">
+                          <span class="portfolio-card-tag">brand</span>
+            <span class="portfolio-card-tag">landing-page</span>
+            </div>
+            <h3 class="portfolio-card-title">Perspektiv Landing Page</h3>
+            <div class="portfolio-card-date">2026-08-16</div>
+            <p class="portfolio-card-desc">A landing page for the agentic creative agency. Pure HTML and CSS, deployed on GitHub Pages.</p>
+          </div>
         </div>
+        <!-- PORTFOLIO_END -->
       </div>
     </div>
   </section>

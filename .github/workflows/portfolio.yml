@@ -1,0 +1,47 @@
+name: Build Portfolio
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "_portfolio/**"
+      - "portfolio/**"
+      - "scripts/build-portfolio.js"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Run portfolio build
+        run: node scripts/build-portfolio.js
+
+      - name: Check for changes
+        id: check
+        run: |
+          if git diff --quiet -- index.html; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit updated index.html
+        if: steps.check.outputs.changed == 'true'
+        run: |
+          git config user.name "perspektiv-bot"
+          git config user.email "bot@perspektiv.squarecircletriangle.co"
+          git add index.html
+          git commit -m "Auto-build portfolio from _portfolio/ [skip ci]"
+          git push
