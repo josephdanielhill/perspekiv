@@ -1,451 +1,448 @@
-1|<!DOCTYPE html>
-2|<html lang="en">
-3|<head>
-4|  <meta charset="UTF-8">
-5|  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-6|  <title>Perspektiv – The Agentic Creative Agency</title>
-7|  <link rel="preconnect" href="https://fonts.googleapis.com">
-8|<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-9|<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
-10|<style>
-11|    :root {
-12|      --bg-light: #ffffff;
-13|      --bg-off-white: #f5f5f7;
-14|      --bg-dark: #000000;
-15|      --text-heading: #1d1d1f;
-16|      --text-body: #1d1d1f;
-17|      --text-muted: #6e6e73;
-18|      --text-on-dark: #ffffff;
-19|      --accent-primary: #533afd;
-20|      --accent-secondary: #0071e3;
-21|      --border-light: #e5edf5;
-22|      --font-display: 'Ubuntu', -apple-system, BlinkMacSystemFont, sans-serif;
-23|      --font-body: 'Ubuntu', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-24|    }
-25|
-26|    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-27|
-28|    body {
-29|      font-family: var(--font-body);
-30|      background: var(--bg-light);
-31|      color: var(--text-body);
-32|      -webkit-font-smoothing: antialiased;
-33|      -moz-osx-font-smoothing: grayscale;
-34|      overflow-x: hidden;
-35|    }
-36|
-37|    .section {
-38|      display: flex;
-39|      flex-direction: column;
-40|      align-items: center;
-41|      padding: 120px 24px;
-42|    }
-43|
-44|    .section-dark {
-45|      background: var(--bg-dark);
-46|      color: var(--text-on-dark);
-47|    }
-48|
-49|    .section-off-white {
-50|      background: var(--bg-off-white);
-51|    }
-52|
-53|    .content {
-54|      max-width: 1080px;
-55|      width: 100%;
-56|      display: flex;
-57|      flex-direction: column;
-58|      align-items: center;
-59|    }
-60|
-61|    /* ── HERO ── */
-62|    .hero {
-63|      min-height: 100vh;
-64|      justify-content: center;
-65|      padding: 80px 24px;
-66|      position: relative;
-67|    }
-68|
-69|    .hero-logo {
-70|      display: flex;
-71|      flex-direction: column;
-72|      align-items: center;
-73|      margin-bottom: 64px;
-74|    }
-75|
-76|    .hero-logo-img {
-77|      max-width: 600px;
-78|      height: auto;
-79|      display: block;
-80|      margin-bottom: 16px;
-81|    }
-82|
-83|    .hero-divider {
-84|      width: 40px;
-85|      height: 3px;
-86|      background: var(--accent-primary);
-87|      border-radius: 2px;
-88|      margin: 48px auto;
-89|    }
-90|
-91|    .hero-tagline {
-92|      font-family: var(--font-display);
-93|      font-size: 28px;
-94|      font-weight: 300;
-95|      color: var(--text-body);
-96|      letter-spacing: -0.22px;
-97|      line-height: 1.4;
-98|      text-align: center;
-99|      max-width: 640px;
-100|    }
-101|
-102|    /* ── SERVICES ── */
-103|    .section-title {
-104|      font-family: var(--font-display);
-105|      font-size: 56px;
-106|      font-weight: 400;
-107|      color: var(--text-heading);
-108|      letter-spacing: -0.28px;
-109|      line-height: 1.1;
-110|      text-align: center;
-111|      margin-bottom: 16px;
-112|    }
-113|
-114|    .section-dark .section-title { color: var(--text-on-dark); }
-115|
-116|    .section-subtitle {
-117|      font-family: var(--font-display);
-118|      font-size: 22px;
-119|      font-weight: 300;
-120|      color: var(--text-body);
-121|      letter-spacing: -0.22px;
-122|      line-height: 1.4;
-123|      text-align: center;
-124|      max-width: 640px;
-125|      margin-bottom: 64px;
-126|    }
-127|
-128|    .section-dark .section-subtitle { color: rgba(255,255,255,0.7); }
-129|
-130|    .services-grid {
-131|      display: grid;
-132|      grid-template-columns: repeat(3, 1fr);
-133|      gap: 24px;
-134|      width: 100%;
-135|    }
-136|
-137|    .service-card {
-138|      background: var(--bg-light);
-139|      border: 1px solid var(--border-light);
-140|      border-radius: 8px;
-141|      padding: 40px 32px;
-142|      transition: box-shadow 0.3s ease, transform 0.3s ease;
-143|      box-shadow: rgba(50,50,93,0.25) 0px 30px 45px -30px, rgba(0,0,0,0.1) 0px 18px 36px -18px;
-144|    }
-145|
-146|    .service-card:hover {
-147|      box-shadow: rgba(50,50,93,0.25) 0px 30px 60px -20px, rgba(0,0,0,0.15) 0px 18px 40px -18px;
-148|      transform: translateY(-2px);
-149|    }
-150|
-151|    .service-number {
-152|      font-family: var(--font-display);
-153|      font-size: 14px;
-154|      font-weight: 600;
-155|      color: var(--accent-primary);
-156|      letter-spacing: 1px;
-157|      text-transform: uppercase;
-158|      margin-bottom: 16px;
-159|    }
-160|
-161|    .service-title {
-162|      font-family: var(--font-display);
-163|      font-size: 22px;
-164|      font-weight: 600;
-165|      color: #061b31;
-166|      letter-spacing: -0.22px;
-167|      margin-bottom: 12px;
-168|    }
-169|
-170|    .service-desc {
-171|      font-size: 15px;
-172|      line-height: 1.5;
-173|      color: #6e6e73;
-174|    }
-175|
-176|    /* ── WHY ── */
-177|    .why-columns {
-178|      display: grid;
-179|      grid-template-columns: 1fr 1fr;
-180|      gap: 80px;
-181|      width: 100%;
-182|      align-items: center;
-183|    }
-184|
-185|    .why-left { }
-186|
-187|    .why-label {
-188|      font-size: 14px;
-189|      font-weight: 600;
-190|      color: var(--accent-primary);
-191|      letter-spacing: 1px;
-192|      text-transform: uppercase;
-193|      margin-bottom: 16px;
-194|    }
-195|
-196|    .why-heading {
-197|      font-family: var(--font-display);
-198|      font-size: 40px;
-199|      font-weight: 300;
-200|      color: var(--text-on-dark);
-201|      letter-spacing: -0.28px;
-202|      line-height: 1.1;
-203|      margin-bottom: 24px;
-204|    }
-205|
-206|    .why-text {
-207|      font-size: 17px;
-208|      line-height: 1.6;
-209|      color: rgba(255,255,255,0.7);
-210|    }
-211|
-212|    .why-right {
-213|      display: flex;
-214|      flex-direction: column;
-215|      gap: 32px;
-216|    }
-217|
-218|    .why-point {
-219|      border-left: 2px solid var(--accent-primary);
-220|      padding-left: 20px;
-221|    }
-222|
-223|    .why-point-title {
-224|      font-family: var(--font-display);
-225|      font-size: 20px;
-226|      font-weight: 600;
-227|      color: var(--text-on-dark);
-228|      margin-bottom: 6px;
-229|    }
-230|
-231|    .why-point-desc {
-232|      font-size: 15px;
-233|      line-height: 1.5;
-234|      color: rgba(255,255,255,0.6);
-235|    }
-236|
-237|    /* ── PORTFOLIO ── */
-238|    .portfolio-grid {
-239|      display: grid;
-240|      grid-template-columns: 1fr;
-241|      gap: 32px;
-242|      width: 100%;
-243|    }
-244|
-245|    .portfolio-card {
-246|      background: var(--bg-light);
-247|      border: 1px solid var(--border-light);
-248|      border-radius: 20px;
-249|      overflow: hidden;
-250|      transition: box-shadow 0.3s ease, transform 0.3s ease;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perspektiv – The Agentic Creative Agency</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+    :root {
+      --bg-light: #ffffff;
+      --bg-off-white: #f5f5f7;
+      --bg-dark: #000000;
+      --text-heading: #1d1d1f;
+      --text-body: #1d1d1f;
+      --text-muted: #6e6e73;
+      --text-on-dark: #ffffff;
+      --accent-primary: #533afd;
+      --accent-secondary: #0071e3;
+      --border-light: #e5edf5;
+      --font-display: 'Ubuntu', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Ubuntu', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg-light);
+      color: var(--text-body);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    .section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 120px 24px;
+    }
+
+    .section-dark {
+      background: var(--bg-dark);
+      color: var(--text-on-dark);
+    }
+
+    .section-off-white {
+      background: var(--bg-off-white);
+    }
+
+    .content {
+      max-width: 1080px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      justify-content: center;
+      padding: 80px 24px;
+      position: relative;
+    }
+
+    .hero-logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 64px;
+    }
+
+    .hero-logo-img {
+      max-width: 600px;
+      height: auto;
       display: block;
-      text-decoration: none;
-      color: inherit;
-251|    }
-252|
-253|    .portfolio-card:hover {
-254|      box-shadow: rgba(50,50,93,0.25) 0px 30px 60px -20px, rgba(0,0,0,0.15) 0px 18px 40px -18px;
-255|      transform: translateY(-2px);
-256|    }
-257|
-258|    .portfolio-card-image {
-259|      width: 100%;
-260|      aspect-ratio: 16 / 9;
-261|      overflow: hidden;
-262|      background: var(--bg-off-white);
-263|    }
-264|
-265|    .portfolio-card-image img {
-266|      width: 100%;
-267|      height: 100%;
-268|      object-fit: cover;
-269|      display: block;
-270|    }
-271|
-272|    .portfolio-card-body {
-273|      padding: 32px 40px;
-274|    }
-275|
-276|    .portfolio-card-tags {
-277|      display: flex;
-278|      flex-wrap: wrap;
-279|      gap: 8px;
-280|      margin-bottom: 12px;
-281|    }
-282|
-283|    .portfolio-card-tag {
-284|      font-size: 12px;
-285|      font-weight: 500;
-286|      color: var(--accent-primary);
-287|      background: rgba(83, 58, 253, 0.08);
-288|      padding: 4px 12px;
-289|      border-radius: 20px;
-290|      letter-spacing: 0.02em;
-291|    }
-292|
-293|    .portfolio-card-title {
-294|      font-family: var(--font-display);
-295|      font-size: 24px;
-296|      font-weight: 600;
-297|      color: var(--text-heading);
-298|      margin-bottom: 8px;
-299|    }
-300|
-301|    .portfolio-card-date {
-302|      font-size: 13px;
-303|      color: var(--text-muted);
-304|      margin-bottom: 12px;
-305|    }
-306|
-307|    .portfolio-card-desc {
-308|      font-size: 15px;
-309|      line-height: 1.6;
-310|      color: var(--text-muted);
-311|      max-width: 560px;
-312|    }
-313|
-314|    .portfolio-empty {
-315|      text-align: center;
-316|      padding: 80px 24px;
-317|      border: 2px dashed var(--border-light);
-318|      border-radius: 16px;
-319|    }
-320|
-321|    .portfolio-empty h3 {
-322|      font-family: var(--font-display);
-323|      font-size: 24px;
-324|      font-weight: 400;
-325|      color: var(--text-muted);
-326|      margin-bottom: 8px;
-327|    }
-328|
-329|    .portfolio-empty p {
-330|      font-size: 15px;
-331|      color: var(--text-muted);
-332|      line-height: 1.5;
-333|    }
-334|
-335|    /* ── FOOTER ── */
-336|    .footer {
-337|      padding: 48px 24px;
-338|      text-align: center;
-339|      border-top: 1px solid var(--border-light);
-340|    }
-341|
-342|    .footer-text {
-343|      font-size: 14px;
-344|      color: var(--text-muted);
-345|    }
-346|
-347|    /* ── RESPONSIVE ── */
-348|    @media (max-width: 768px) {
-349|      .hero-logo-img { max-width: 400px; }
-350|      .hero-tagline { font-size: 22px; }
-351|      .services-grid { grid-template-columns: 1fr; }
-352|      .section-title { font-size: 32px; }
-353|      .cta-heading { font-size: 36px; }
-354|      .why-columns { grid-template-columns: 1fr; gap: 48px; }
-355|      .why-heading { font-size: 32px; }
-356|      .section { padding: 80px 24px; }
-357|    }
-358|
-359|    @media (max-width: 480px) {
-360|      .hero-logo-img { max-width: 320px; }
-361|    }
-362|  </style>
-363|</head>
-364|<body>
-365|
-366|  <!-- HERO -->
-367|  <section class="section hero">
-368|    <div class="content">
-369|      <div class="hero-logo">
-370|        <img src="logo.png" alt="Perspektiv" class="hero-logo-img">
-371|      </div>
-372|      <div class="hero-divider"></div>
-373|      <p class="hero-tagline">
-374|        AI-native creative work that looks intentional <br class="hide-mobile">and reads like it took no effort.
-375|      </p>
-376|    </div>
-377|  </section>
-378|
-379|  <!-- SERVICES -->
-380|  <section class="section section-off-white">
-381|    <div class="content">
-382|      <h2 class="section-title">What we do</h2>
-383|      <p class="section-subtitle">
-384|        Every surface, every pixel, every word –<br>designed with intention, delivered without friction.
-385|      </p>
-386|      <div class="services-grid">
-387|        <div class="service-card">
-388|          <div class="service-number">01</div>
-389|          <h3 class="service-title">Brand Identity</h3>
-390|          <p class="service-desc">Logos, type systems, colour palettes, and visual languages that hold together at every touchpoint.</p>
-391|        </div>
-392|        <div class="service-card">
-393|          <div class="service-number">02</div>
-394|          <h3 class="service-title">Landing Pages</h3>
-395|          <p class="service-desc">One-page sites and product pages that tell one story, make one argument, drive one outcome.</p>
-396|        </div>
-397|        <div class="service-card">
-398|          <div class="service-number">03</div>
-399|          <h3 class="service-title">Design Systems</h3>
-400|          <p class="service-desc">Tokenised, documented, composable design systems engineered for speed and consistency.</p>
-401|        </div>
-402|      </div>
-403|    </div>
-404|  </section>
-405|
-406|  <!-- WHY PERSPEKTIV -->
-407|  <section class="section section-dark">
-408|    <div class="content">
-409|      <div class="why-columns">
-410|        <div class="why-left">
-411|          <div class="why-label">Why Perspektiv</div>
-412|          <h2 class="why-heading">AI doesn't design.<br>People do.</h2>
-413|          <p class="why-text">
-414|            We use AI as our loom, our lathe, our brush – not as our voice. 
-415|            Every output is reviewed, refined, and signed off by a human who 
-416|            cares about the difference between good enough and intentional.
-417|          </p>
-418|        </div>
-419|        <div class="why-right">
-420|          <div class="why-point">
-421|            <div class="why-point-title">Surface-first, not template-first</div>
-422|            <div class="why-point-desc">We name the surface archetype before writing a single line – Monitor, Operate, Decide. The structure follows the interaction, not the other way around.</div>
-423|          </div>
-424|          <div class="why-point">
-425|            <div class="why-point-title">Anti-slop by design</div>
-426|            <div class="why-point-desc">We score every deliverable against a 10-point slop diagnostic. If it scores above 3, it doesn't ship. No gradients that pretend to be depth. No feature grids that pretend to be strategy.</div>
-427|          </div>
-428|          <div class="why-point">
-429|            <div class="why-point-title">Built for one person</div>
-430|            <div class="why-point-desc">This agency exists for exactly one client. Every pixel, every word, every decision serves that relationship.</div>
-431|          </div>
-432|        </div>
-433|      </div>
-434|    </div>
-435|  </section>
-436|
-437|  <!-- PORTFOLIO -->
-438|  <section class="section section-off-white">
-439|    <div class="content">
-440|      <h2 class="section-title">our work</h2>
-441|      <p class="section-subtitle">
-442|        Every project we ship, signed off and published here.
-443|      </p>
-444|      <div class="portfolio-grid">
-445|        <!-- PORTFOLIO_START -->
+      margin-bottom: 16px;
+    }
+
+    .hero-divider {
+      width: 40px;
+      height: 3px;
+      background: var(--accent-primary);
+      border-radius: 2px;
+      margin: 48px auto;
+    }
+
+    .hero-tagline {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 300;
+      color: var(--text-body);
+      letter-spacing: -0.22px;
+      line-height: 1.4;
+      text-align: center;
+      max-width: 640px;
+    }
+
+    /* ── SERVICES ── */
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 56px;
+      font-weight: 400;
+      color: var(--text-heading);
+      letter-spacing: -0.28px;
+      line-height: 1.1;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .section-dark .section-title { color: var(--text-on-dark); }
+
+    .section-subtitle {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 300;
+      color: var(--text-body);
+      letter-spacing: -0.22px;
+      line-height: 1.4;
+      text-align: center;
+      max-width: 640px;
+      margin-bottom: 64px;
+    }
+
+    .section-dark .section-subtitle { color: rgba(255,255,255,0.7); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      width: 100%;
+    }
+
+    .service-card {
+      background: var(--bg-light);
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      padding: 40px 32px;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      box-shadow: rgba(50,50,93,0.25) 0px 30px 45px -30px, rgba(0,0,0,0.1) 0px 18px 36px -18px;
+    }
+
+    .service-card:hover {
+      box-shadow: rgba(50,50,93,0.25) 0px 30px 60px -20px, rgba(0,0,0,0.15) 0px 18px 40px -18px;
+      transform: translateY(-2px);
+    }
+
+    .service-number {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent-primary);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .service-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 600;
+      color: #061b31;
+      letter-spacing: -0.22px;
+      margin-bottom: 12px;
+    }
+
+    .service-desc {
+      font-size: 15px;
+      line-height: 1.5;
+      color: #6e6e73;
+    }
+
+    /* ── WHY ── */
+    .why-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      width: 100%;
+      align-items: center;
+    }
+
+    .why-left { }
+
+    .why-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent-primary);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .why-heading {
+      font-family: var(--font-display);
+      font-size: 40px;
+      font-weight: 300;
+      color: var(--text-on-dark);
+      letter-spacing: -0.28px;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+
+    .why-text {
+      font-size: 17px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .why-right {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .why-point {
+      border-left: 2px solid var(--accent-primary);
+      padding-left: 20px;
+    }
+
+    .why-point-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text-on-dark);
+      margin-bottom: 6px;
+    }
+
+    .why-point-desc {
+      font-size: 15px;
+      line-height: 1.5;
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* ── PORTFOLIO ── */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      width: 100%;
+    }
+
+    .portfolio-card {
+      background: var(--bg-light);
+      border: 1px solid var(--border-light);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    .portfolio-card:hover {
+      box-shadow: rgba(50,50,93,0.25) 0px 30px 60px -20px, rgba(0,0,0,0.15) 0px 18px 40px -18px;
+      transform: translateY(-2px);
+    }
+
+    .portfolio-card-image {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: var(--bg-off-white);
+    }
+
+    .portfolio-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .portfolio-card-body {
+      padding: 32px 40px;
+    }
+
+    .portfolio-card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .portfolio-card-tag {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--accent-primary);
+      background: rgba(83, 58, 253, 0.08);
+      padding: 4px 12px;
+      border-radius: 20px;
+      letter-spacing: 0.02em;
+    }
+
+    .portfolio-card-title {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--text-heading);
+      margin-bottom: 8px;
+    }
+
+    .portfolio-card-date {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .portfolio-card-desc {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--text-muted);
+      max-width: 560px;
+    }
+
+    .portfolio-empty {
+      text-align: center;
+      padding: 80px 24px;
+      border: 2px dashed var(--border-light);
+      border-radius: 16px;
+    }
+
+    .portfolio-empty h3 {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .portfolio-empty p {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      padding: 48px 24px;
+      text-align: center;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .footer-text {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .hero-logo-img { max-width: 400px; }
+      .hero-tagline { font-size: 22px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .section-title { font-size: 32px; }
+      .cta-heading { font-size: 36px; }
+      .why-columns { grid-template-columns: 1fr; gap: 48px; }
+      .why-heading { font-size: 32px; }
+      .section { padding: 80px 24px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-logo-img { max-width: 320px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="section hero">
+    <div class="content">
+      <div class="hero-logo">
+        <img src="logo.png" alt="Perspektiv" class="hero-logo-img">
+      </div>
+      <div class="hero-divider"></div>
+      <p class="hero-tagline">
+        AI-native creative work that looks intentional <br class="hide-mobile">and reads like it took no effort.
+      </p>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section section-off-white">
+    <div class="content">
+      <h2 class="section-title">What we do</h2>
+      <p class="section-subtitle">
+        Every surface, every pixel, every word –<br>designed with intention, delivered without friction.
+      </p>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-number">01</div>
+          <h3 class="service-title">Brand Identity</h3>
+          <p class="service-desc">Logos, type systems, colour palettes, and visual languages that hold together at every touchpoint.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-number">02</div>
+          <h3 class="service-title">Landing Pages</h3>
+          <p class="service-desc">One-page sites and product pages that tell one story, make one argument, drive one outcome.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-number">03</div>
+          <h3 class="service-title">Design Systems</h3>
+          <p class="service-desc">Tokenised, documented, composable design systems engineered for speed and consistency.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY PERSPEKTIV -->
+  <section class="section section-dark">
+    <div class="content">
+      <div class="why-columns">
+        <div class="why-left">
+          <div class="why-label">Why Perspektiv</div>
+          <h2 class="why-heading">AI doesn't design.<br>People do.</h2>
+          <p class="why-text">
+            We use AI as our loom, our lathe, our brush – not as our voice. 
+            Every output is reviewed, refined, and signed off by a human who 
+            cares about the difference between good enough and intentional.
+          </p>
+        </div>
+        <div class="why-right">
+          <div class="why-point">
+            <div class="why-point-title">Surface-first, not template-first</div>
+            <div class="why-point-desc">We name the surface archetype before writing a single line – Monitor, Operate, Decide. The structure follows the interaction, not the other way around.</div>
+          </div>
+          <div class="why-point">
+            <div class="why-point-title">Anti-slop by design</div>
+            <div class="why-point-desc">We score every deliverable against a 10-point slop diagnostic. If it scores above 3, it doesn't ship. No gradients that pretend to be depth. No feature grids that pretend to be strategy.</div>
+          </div>
+          <div class="why-point">
+            <div class="why-point-title">Built for one person</div>
+            <div class="why-point-desc">This agency exists for exactly one client. Every pixel, every word, every decision serves that relationship.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section class="section section-off-white">
+    <div class="content">
+      <h2 class="section-title">our work</h2>
+      <p class="section-subtitle">
+        Every project we ship, signed off and published here.
+      </p>
+      <div class="portfolio-grid">
+        <!-- PORTFOLIO_START -->
 
         <a href="/projects/perspekiv-landing/" class="portfolio-card">
           <div class="portfolio-card-image">
@@ -462,14 +459,14 @@
           </div>
         </a>
         <!-- PORTFOLIO_END -->
-462|      </div>
-463|    </div>
-464|  </section>
-465|
-466|  <!-- FOOTER -->
-467|  <footer class="footer">
-468|    <p class="footer-text">Perspektiv – The Agentic Creative Agency for Joseph Hill</p>
-469|  </footer>
-470|
-471|</body>
-472|</html>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p class="footer-text">Perspektiv – The Agentic Creative Agency for Joseph Hill</p>
+  </footer>
+
+</body>
+</html>

@@ -63,6 +63,10 @@ function parseFrontmatter(text) {
 }
 
 function parseValue(val) {
+  // YAML block list: lines starting with `- `
+  if (/^- /.test(val.trim())) {
+    return val.trim().split('\n').map(line => line.replace(/^- /, '').trim().replace(/^['\"]|['\"]$/g, ''));
+  }
   if (/^\[.*\]$/.test(val.trim())) {
     return val.slice(1, -1).split(',').map(s => s.trim().replace(/^['"]|['"]$/g, ''));
   }
@@ -113,6 +117,8 @@ function readEntries() {
       brief: brief || '',
       body: body || '',
       status: meta.status || 'launched',
+      models: meta.models || [],
+      notes: meta.notes || [],
       slug: file.replace('.md', ''),
     });
   }
@@ -283,6 +289,50 @@ function generateProjectPage(entry) {
       margin-bottom: 0;
     }
 
+    .project-meta-section {
+      background: #f5f5f7;
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 32px;
+    }
+
+    .project-meta-heading {
+      font-size: 14px;
+      font-weight: 600;
+      color: #6e6e73;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+    }
+
+    .project-model-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .project-model-badge {
+      font-size: 14px;
+      font-weight: 500;
+      color: #1d1d1f;
+      background: #fff;
+      border: 1px solid #e8e8ed;
+      padding: 6px 16px;
+      border-radius: 20px;
+    }
+
+    .project-notes-list {
+      list-style: disc;
+      padding-left: 20px;
+    }
+
+    .project-notes-list li {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #333;
+      margin-bottom: 6px;
+    }
+
     @media (max-width: 640px) {
       .project-title { font-size: 28px; }
       .project-container { padding: 32px 20px 60px; }
@@ -304,6 +354,22 @@ function generateProjectPage(entry) {
 
     <h1 class="project-title">${escapeHtml(entry.title)}</h1>
     <div class="project-date">${dateStr}</div>
+
+    ${entry.models.length > 0 ? `
+    <div class="project-meta-section">
+      <h3 class="project-meta-heading">Models Used</h3>
+      <div class="project-model-list">
+        ${entry.models.map(m => `<span class="project-model-badge">${escapeHtml(m)}</span>`).join('\n        ')}
+      </div>
+    </div>` : ''}
+
+    ${entry.notes.length > 0 ? `
+    <div class="project-meta-section">
+      <h3 class="project-meta-heading">Interesting Facts</h3>
+      <ul class="project-notes-list">
+        ${entry.notes.map(n => `<li>${escapeHtml(n)}</li>`).join('\n        ')}
+      </ul>
+    </div>` : ''}
 
     ${bodyHTML}
   </article>

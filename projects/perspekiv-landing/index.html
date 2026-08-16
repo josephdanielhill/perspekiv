@@ -100,6 +100,50 @@
       margin-bottom: 0;
     }
 
+    .project-meta-section {
+      background: #f5f5f7;
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 32px;
+    }
+
+    .project-meta-heading {
+      font-size: 14px;
+      font-weight: 600;
+      color: #6e6e73;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+    }
+
+    .project-model-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .project-model-badge {
+      font-size: 14px;
+      font-weight: 500;
+      color: #1d1d1f;
+      background: #fff;
+      border: 1px solid #e8e8ed;
+      padding: 6px 16px;
+      border-radius: 20px;
+    }
+
+    .project-notes-list {
+      list-style: disc;
+      padding-left: 20px;
+    }
+
+    .project-notes-list li {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #333;
+      margin-bottom: 6px;
+    }
+
     @media (max-width: 640px) {
       .project-title { font-size: 28px; }
       .project-container { padding: 32px 20px 60px; }
@@ -124,6 +168,26 @@
 
     <h1 class="project-title">Perspektiv Landing Page</h1>
     <div class="project-date">2026-08-16</div>
+
+    
+    <div class="project-meta-section">
+      <h3 class="project-meta-heading">Models Used</h3>
+      <div class="project-model-list">
+        <span class="project-model-badge">Claude 3.5 Sonnet</span>
+        <span class="project-model-badge">Gemini 2.0 Flash</span>
+      </div>
+    </div>
+
+    
+    <div class="project-meta-section">
+      <h3 class="project-meta-heading">Interesting Facts</h3>
+      <ul class="project-notes-list">
+        <li>Built as the first project under Perspektiv — the agency itself, dogfooded.</li>
+        <li>Logo designed with Leckerli One (Google Fonts), ruby red dot baked into PNG.</li>
+        <li>Zero JavaScript on the page — pure HTML + CSS, responsive.</li>
+        <li>Deployed via GitHub Actions + Pages, custom domain on SquareCircleTriangle.</li>
+      </ul>
+    </div>
 
     <p class="project-body-text">The first project shipped under the Perspektiv banner. A single-page landing site<br>that communicates the agency's philosophy: AI-native creative work that looks<br>intentional and reads like it took no effort.</p>
         <p class="project-body-text">The type system pairs a custom logo (Leckerli One + Nunito) with Ubuntu body text<br>across the page. Ruby red dot on the 'i' became the brand's signature mark.</p>
