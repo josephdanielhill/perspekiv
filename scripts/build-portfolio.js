@@ -90,6 +90,15 @@ function readEntries() {
     .filter(f => f.endsWith('.md'))
     .sort();
 
+  // ── Em dash enforcement ──
+  for (const file of files) {
+    const raw = fs.readFileSync(path.join(PORTFOLIO_DIR, file), 'utf-8');
+    if (raw.includes('\u2014')) {
+      console.error(`\\u274c Em dash (—) found in ${file}. Use en dash (–) instead. Aborting build.`);
+      process.exit(1);
+    }
+  }
+
   const entries = [];
 
   for (const file of files) {
