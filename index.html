@@ -70,21 +70,11 @@
       margin-bottom: 64px;
     }
 
-    .hero-logo-main {
-      font-family: var(--font-display);
-      font-size: 80px;
-      font-weight: 600;
-      color: var(--text-heading);
-      letter-spacing: -2.5px;
-      line-height: 1;
-      text-transform: uppercase;
-    }
-
-    .hero-logo-k {
-      display: inline-block;
-      transform: scaleX(-1);
-      display: inline-flex;
-      align-items: center;
+    .hero-logo-img {
+      max-width: 600px;
+      height: auto;
+      display: block;
+      margin-bottom: 16px;
     }
 
     .hero-logo-sub {
@@ -334,7 +324,7 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
-      .hero-logo-main { font-size: 48px; letter-spacing: -1.5px; }
+      .hero-logo-img { max-width: 400px; }
       .hero-tagline { font-size: 22px; }
       .services-grid { grid-template-columns: 1fr; }
       .section-title { font-size: 32px; }
@@ -346,7 +336,7 @@
     }
 
     @media (max-width: 480px) {
-      .hero-logo-main { font-size: 36px; letter-spacing: -1px; }
+      .hero-logo-img { max-width: 320px; }
       .hero-logo-sub { font-size: 14px; }
     }
   </style>
@@ -357,7 +347,7 @@
   <section class="section hero">
     <div class="content">
       <div class="hero-logo">
-        <div class="hero-logo-main">PERSPEKTIV</div>
+        <img src="logo.png" alt="Perspektiv — The Agentic Creative Agency for Joseph Hill" class="hero-logo-img">
         <div class="hero-logo-sub">The Agentic Creative Agency for Joseph Hill</div>
       </div>
       <div class="hero-divider"></div>
