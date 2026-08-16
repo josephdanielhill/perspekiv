@@ -20,6 +20,16 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Check for em dashes
+        run: |
+          files=$(grep -rl $'\\xe2\\x80\\x94' --include='*.html' --include='*.js' --include='*.md' --include='*.css' . 2>/dev/null || true)
+          if [ -n "$files" ]; then
+            echo "❌ Em dashes (—) found in:"
+            echo "$files"
+            exit 1
+          fi
+          echo "✓ No em dashes found"
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
