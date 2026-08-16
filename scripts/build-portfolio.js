@@ -150,6 +150,12 @@ function cardHTML(entry) {
             <h3 class="portfolio-card-title">${entry.title}</h3>
             <div class="portfolio-card-date">${dateStr}</div>
             <p class="portfolio-card-desc">${entry.brief}</p>
+          ${entry.models.length > 0 ? `
+          <div class="portfolio-card-models">
+            ${entry.models.map(m => `<span class="portfolio-card-model-badge">${escapeHtml(m)}</span>`).join('')}
+          </div>` : ''}
+          ${entry.notes.length > 0 ? `
+          <div class="portfolio-card-notes-count">${entry.notes.length} ${entry.notes.length === 1 ? 'fact' : 'facts'}</div>` : ''}
           </div>
         </a>`;
 }

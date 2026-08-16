@@ -236,16 +236,19 @@
 
     /* ── PORTFOLIO ── */
     .portfolio-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 32px;
-      width: 100%;
-    }
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+          gap: 24px;
+          margin-top: 40px;
+        }
 
     .portfolio-card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
       background: var(--bg-light);
       border: 1px solid var(--border-light);
-      border-radius: 20px;
+      border-radius: 16px;
       overflow: hidden;
       transition: box-shadow 0.3s ease, transform 0.3s ease;
     }
@@ -270,7 +273,7 @@
     }
 
     .portfolio-card-body {
-      padding: 32px 40px;
+      padding: 20px 24px;
     }
 
     .portfolio-card-tags {
@@ -292,10 +295,10 @@
 
     .portfolio-card-title {
       font-family: var(--font-display);
-      font-size: 24px;
+      font-size: 20px;
       font-weight: 600;
       color: var(--text-heading);
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .portfolio-card-date {
@@ -305,10 +308,32 @@
     }
 
     .portfolio-card-desc {
-      font-size: 15px;
-      line-height: 1.6;
+      font-size: 14px;
+      line-height: 1.5;
       color: var(--text-muted);
-      max-width: 560px;
+    }
+
+    .portfolio-card-models {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 12px;
+    }
+
+    .portfolio-card-model-badge {
+      font-size: 11px;
+      font-weight: 500;
+      color: #6b7280;
+      background: #f3f4f6;
+      padding: 3px 10px;
+      border-radius: 12px;
+      letter-spacing: 0.01em;
+    }
+
+    .portfolio-card-notes-count {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 8px;
     }
 
     .portfolio-empty {
@@ -456,6 +481,12 @@
             <h3 class="portfolio-card-title">Perspektiv Landing Page</h3>
             <div class="portfolio-card-date">2026-08-16</div>
             <p class="portfolio-card-desc">A landing page for the agentic creative agency. Pure HTML and CSS, deployed on GitHub Pages.</p>
+          
+          <div class="portfolio-card-models">
+            <span class="portfolio-card-model-badge">Claude 3.5 Sonnet</span><span class="portfolio-card-model-badge">Gemini 2.0 Flash</span>
+          </div>
+          
+          <div class="portfolio-card-notes-count">4 facts</div>
           </div>
         </a>
         <!-- PORTFOLIO_END -->
