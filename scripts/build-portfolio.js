@@ -129,6 +129,7 @@ function readEntries() {
       models: meta.models || [],
       notes: meta.notes || [],
       tools: meta.tools || [],
+      index: meta.index !== false,
       slug: file.replace('.md', ''),
     });
   }
@@ -206,7 +207,7 @@ function generateProjectPage(entry) {
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <meta name="robots" content="noindex">
+  ${entry.index ? '' : '<meta name="robots" content="noindex">\n'}
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
