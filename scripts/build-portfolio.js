@@ -195,7 +195,7 @@ function generateProjectPage(entry) {
     .split('\n\n')
     .map(p => p.trim())
     .filter(p => p)
-    .map(p => `<p class="project-body-text">${p.replace(/\n/g, '<br>')}</p>`)
+    .map(p => `<p class="project-body-text">${p.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>')}</p>`)
     .join('\n        ');
 
   const pageContent = `<!DOCTYPE html>
