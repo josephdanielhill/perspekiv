@@ -160,6 +160,27 @@
       margin-bottom: 6px;
     }
 
+    .project-gallery {
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid #e8e8ed;
+    }
+
+    .project-gallery-item {
+      width: 100%;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 24px;
+      background: #f5f5f7;
+      border: 1px solid #e8e8ed;
+    }
+
+    .project-gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
     @media (max-width: 640px) {
       .project-title { font-size: 28px; }
       .project-container { padding: 32px 20px 60px; }
@@ -225,6 +246,18 @@
         <p class="project-body-text"><strong>"A Tour of MILO"</strong> – The exploration card. Four slightly rotated screenshot panels (Home, Discover, Library, Detail) invite the viewer to click and explore. The "curated" framing was iterated out in favour of "featured content" after user feedback, reflecting the team's commitment to editorial quality.</p>
         <p class="project-body-text">Both assets went through six rounds of visual refinement:<br>1. Card layout and screenshot sizing (padding → full-bleed)<br>2. Border thickness (5px → 8px → 12px → 24px)<br>3. Distinct panel rotations per card<br>4. Body padding removal to eliminate whitespace bleed<br>5. Text corrections (em dashes out, "curated" → "featured")<br>6. Final alpha-channel mask for rounded-corner transparency</p>
         <p class="project-body-text">The assets live on Proton Drive and were delivered directly into the collaboration thread for stakeholder sign-off.</p>
+
+    
+    <div class="project-gallery">
+      <h3 class="project-meta-heading" style="margin-bottom:20px">Assets</h3>
+      
+      <div class="project-gallery-item">
+        <img src="/portfolio/milo-launch-material/going-loud-with-milo.png" alt="MILO Launch Material - asset 1">
+      </div>
+      <div class="project-gallery-item">
+        <img src="/portfolio/milo-launch-material/a-tour-of-milo.png" alt="MILO Launch Material - asset 2">
+      </div>
+    </div>
   </article>
 </body>
 </html>

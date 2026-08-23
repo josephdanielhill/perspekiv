@@ -360,6 +360,27 @@ function generateProjectPage(entry) {
       margin-bottom: 6px;
     }
 
+    .project-gallery {
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid #e8e8ed;
+    }
+
+    .project-gallery-item {
+      width: 100%;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 24px;
+      background: #f5f5f7;
+      border: 1px solid #e8e8ed;
+    }
+
+    .project-gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
     @media (max-width: 640px) {
       .project-title { font-size: 28px; }
       .project-container { padding: 32px 20px 60px; }
@@ -407,6 +428,15 @@ function generateProjectPage(entry) {
     </div>` : ''}
 
     ${bodyHTML}
+
+    ${entry.images.length > 1 ? `
+    <div class="project-gallery">
+      <h3 class="project-meta-heading" style="margin-bottom:20px">Assets</h3>
+      ${entry.images.map((img, i) => `
+      <div class="project-gallery-item">
+        <img src="${img}" alt="${entry.title} - asset ${i + 1}">
+      </div>`).join('')}
+    </div>` : ''}
   </article>
 </body>
 </html>`;
