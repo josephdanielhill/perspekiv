@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MILO Launch Material – Perspektiv</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Ubuntu', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #fff;
+      color: #1d1d1f;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .project-nav {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 32px 24px 0;
+    }
+
+    .project-nav a {
+      color: #6e6e73;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 400;
+      transition: color 0.2s;
+    }
+
+    .project-nav a:hover {
+      color: #1d1d1f;
+    }
+
+    .project-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    .project-hero-image {
+      width: 100%;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 48px;
+      background: #f5f5f7;
+      border: 1px solid #e8e8ed;
+    }
+
+    .project-hero-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .project-tag {
+      font-size: 13px;
+      font-weight: 500;
+      color: #c41e3a;
+      background: rgba(196, 30, 58, 0.08);
+      padding: 4px 14px;
+      border-radius: 20px;
+    }
+
+    .project-title {
+      font-size: 40px;
+      font-weight: 700;
+      color: #1d1d1f;
+      line-height: 1.15;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .project-date {
+      font-size: 15px;
+      color: #6e6e73;
+      margin-bottom: 32px;
+    }
+
+    .project-body-text {
+      font-size: 18px;
+      line-height: 1.7;
+      color: #333;
+      margin-bottom: 24px;
+    }
+
+    .project-body-text:last-child {
+      margin-bottom: 0;
+    }
+
+    .project-meta-section {
+      background: #f5f5f7;
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 32px;
+    }
+
+    .project-meta-heading {
+      font-size: 14px;
+      font-weight: 600;
+      color: #6e6e73;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+    }
+
+    .project-model-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .project-model-badge {
+      font-size: 14px;
+      font-weight: 500;
+      color: #1d1d1f;
+      background: #fff;
+      border: 1px solid #e8e8ed;
+      padding: 6px 16px;
+      border-radius: 20px;
+    }
+
+    .project-tool-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .project-tool-badge {
+      font-size: 13px;
+      font-weight: 500;
+      color: #c41e3a;
+      border: 1.5px solid #c41e3a;
+      background: transparent;
+      padding: 4px 14px;
+      border-radius: 16px;
+    }
+
+    .project-notes-list {
+      list-style: disc;
+      padding-left: 20px;
+    }
+
+    .project-notes-list li {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #333;
+      margin-bottom: 6px;
+    }
+
+    @media (max-width: 640px) {
+      .project-title { font-size: 28px; }
+      .project-container { padding: 32px 20px 60px; }
+      .project-body-text { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="project-nav">
+    <a href="/">&larr; Back to Perspektiv</a>
+  </nav>
+
+  <article class="project-container">
+        <div class="project-hero-image">
+        <img src="/portfolio/milo-launch-material/going-loud-with-milo.png" alt="MILO Launch Material">
+      </div>
+
+    <div class="project-tags">
+      <span class="project-tag">brand-assets</span>
+        <span class="project-tag">launch</span>
+        <span class="project-tag">product-design</span>
+        <span class="project-tag">marketing</span>
+    </div>
+
+    <h1 class="project-title">MILO Launch Material</h1>
+    <div class="project-date">2026-08-23</div>
+
+    
+    <div class="project-meta-section">
+      <h3 class="project-meta-heading">Models Used</h3>
+      <div class="project-model-list">
+        <span class="project-model-badge">OpenAI GPT-4o</span>
+        <span class="project-model-badge">Google Gemini 2.5 Flash</span>
+        <span class="project-model-badge">DeepSeek V4</span>
+      </div>
+    </div>
+
+    
+    <div class="project-meta-section">
+      <h3 class="project-meta-heading">Tools Used</h3>
+      <div class="project-tool-list">
+        <span class="project-tool-badge">HTML/CSS</span>
+        <span class="project-tool-badge">Browser CDP</span>
+        <span class="project-tool-badge">Python Pillow</span>
+        <span class="project-tool-badge">GitHub Pages</span>
+        <span class="project-tool-badge">GitHub Actions</span>
+      </div>
+    </div>
+
+    
+    <div class="project-meta-section">
+      <h3 class="project-meta-heading">Interesting Facts</h3>
+      <ul class="project-notes-list">
+        <li>Both assets share MILO's brand palette: lime (#d8e34a), ruby red (#cf3045), ink (#202221), paper (#f7f5ef).</li>
+        <li>Each card features a rotated, bordered screenshot panel with distinct rotation per panel.</li>
+        <li>Delivered at 2400×1260px (2× retina at 4800×2520) with rounded-corner transparency for ready-to-use placement.</li>
+        <li>Production flow: designed in HTML+CSS → rendered via headless browser (Chrome CDP) → alpha-masked with Pillow → uploaded to Proton Drive.</li>
+      </ul>
+    </div>
+
+    <p class="project-body-text">Two polished launch assets for **MILO** (Methods, Instructions, Learning & Operations) – a private, local-first resource library for product managers.</p>
+        <p class="project-body-text">**"Going Loud with MILO"** – The flagship hero card. A stacked-card layout with three feature panels (Home, Discover, Library) that visually teases the product's core screens. The headline plays on the product's name, framing MILO as the loud, confident voice in your toolkit.</p>
+        <p class="project-body-text">**"A Tour of MILO"** – The exploration card. Four slightly rotated screenshot panels (Home, Discover, Library, Detail) invite the viewer to click and explore. The "curated" framing was iterated out in favour of "featured content" after user feedback, reflecting the team's commitment to editorial quality.</p>
+        <p class="project-body-text">Both assets went through six rounds of visual refinement:<br>1. Card layout and screenshot sizing (padding → full-bleed)<br>2. Border thickness (5px → 8px → 12px → 24px)<br>3. Distinct panel rotations per card<br>4. Body padding removal to eliminate whitespace bleed<br>5. Text corrections (em dashes out, "curated" → "featured")<br>6. Final alpha-channel mask for rounded-corner transparency</p>
+        <p class="project-body-text">The assets live on Proton Drive and were delivered directly into the collaboration thread for stakeholder sign-off.</p>
+  </article>
+</body>
+</html>
