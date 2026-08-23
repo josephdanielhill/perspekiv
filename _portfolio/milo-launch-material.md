@@ -28,3 +28,5 @@ Both assets went through six rounds of visual refinement:
 6. Final alpha-channel mask for rounded-corner transparency
 
 The assets live on Proton Drive and were delivered directly into the collaboration thread for stakeholder sign-off.
+
+**Key learnings from this process:** Browser PNG captures don't support transparency - always post-process with PIL for rounded corners. Lock `html`/`body` width, height, and overflow before rendering to prevent whitespace bleed. Anticipate rotation, padding, and corner issues in the first iteration rather than fixing them in round 5. The Discord feedback loop works best when each iteration addresses exactly one visual concern at a time. For future brand assets, the dimension lock and PIL mask should be applied before the first render, not as bug fixes at the end.
