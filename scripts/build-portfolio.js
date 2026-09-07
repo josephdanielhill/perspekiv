@@ -203,7 +203,11 @@ function generateProjectPage(entry) {
         return `<h2 class="project-heading-2">${escapeHtml(p.replace('## ', ''))}</h2>`;
       }
       if (p.startsWith('- ')) {
-        const items = p.split('\n').map(item => `<li>${item.replace(/^- /, '').replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')}</li>`).join('');
+        const items = p.split('\n').map(item => {
+          const rawItem = item.replace(/^- /, '');
+          const formatted = escapeHtml(rawItem).replace(/&lt;strong&gt;/g, '<strong>').replace(/&lt;\/strong&gt;/g, '</strong>').replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+          return `<li>${formatted}</li>`;
+        }).join('');
         return `<ul class="project-bullet-list">${items}</ul>`;
       }
       return `<p class="project-body-text">${p.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>')}</p>`;

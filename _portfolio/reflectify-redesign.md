@@ -27,15 +27,16 @@ Our core drive for this redesign was to create an inviting, unhurried digital sp
 - **Aesthetic Harmony**: Seamlessly pairing visual art with functional UI so the platform feels cohesive and crafted.
 
 ### Scandi-Botanical Aesthetic System
-We anchored the brand in a Scandinavian botanical design system featuring:
-- **Palette**: Deep forest moss green (`#2D4A3E`), soft sage (`#4E7C67`), warm terracotta (`#E8A88A`), and a soft paper-grain sand background (`#EBF3EF` / `#F7F5F0`).
-- **Typography**: Clean serif brand accents paired with modern sans-serif readability for structured reflection frameworks.
-- **Custom Artwork**: A unified illustration suite depicting quiet morning sanctuaries, sunlight pathways, desk reflection setups, and growing saplings.
+We anchored the brand in a Scandinavian botanical design system:
+
+- Palette: Deep forest moss green (`#2D4A3E`), soft sage (`#4E7C67`), warm terracotta (`#E8A88A`), and a soft paper-grain sand background (`#EBF3EF` / `#F7F5F0`).
+- Typography: Clean serif brand accents paired with modern sans-serif readability for structured reflection frameworks.
+- Custom Artwork: A unified illustration suite depicting quiet morning sanctuaries, sunlight pathways, desk reflection setups, and growing saplings.
 
 ### Core Architecture & Design Enhancements
-- **Header & Navigation**: Stripped out full-width top border lines and experimental badges to spotlight a prominent, elegant SVG logo mark (`reflectify-logo-primary.svg`).
-- **Tool Card Media Banners**: Updated card UI in `script.js` with integrated 180px artwork header banners, micro-hover lifts (`translateY(-2px)`), soft shadows, and full-width primary CTA buttons (`Start reflection →`).
-- **Copy Discipline**: Systematically updated all copy across the app to replace cold "report card" phrasing with warm "reflection summary".
-- **Mobile Responsiveness**: Standardized CTA actions on mobile viewports (`<= 600px`) to full-width stacked columns for touch precision.
+- Header & Navigation: Stripped out full-width top border lines and experimental badges to spotlight a prominent, elegant SVG logo mark (`reflectify-logo-primary.svg`).
+- Tool Card Media Banners: Updated card UI in `script.js` with integrated 180px artwork header banners, micro-hover lifts (`translateY(-2px)`), soft shadows, and full-width primary CTA buttons (`Start reflection →`).
+- Copy Discipline: Systematically updated all copy across the app to replace cold "report card" phrasing with warm "reflection summary".
+- Mobile Responsiveness: Standardized CTA actions on mobile viewports (`<= 600px`) to full-width stacked columns for touch precision.
 
 The redesign is live on Cloudflare Pages (`staging` branch) and fully deployed to production.
