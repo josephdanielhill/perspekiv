@@ -14,19 +14,26 @@ notes:
   - "Fully responsive with mobile-optimized full-width CTAs and high-contrast pill actions."
 ---
 
-Reflectify underwent a complete end-to-end visual identity and product redesign to elevate its experience from a plain web utility into a serene, intentional reflection sanctuary.
+Reflectify underwent a complete end-to-end visual identity and product redesign (PRV-5) to elevate its experience from a plain web utility into a serene, intentional reflection sanctuary.
 
-### Motivation & Brand Vision
-The original design felt overly formal and utility-driven, using rigid terms like "report card" and generic UI patterns that failed to foster a calm, thoughtful atmosphere. The goal of the redesign (PRV-5) was to create a grounded, organic environment that encourages deep personal and professional reflection.
+### The Motivational Drive & Core Purpose
+Self-reflection is fundamentally vulnerable work. When users step back to review their career milestones, personal growth, or ongoing projects, the visual environment directly impacts their headspace. 
+
+The original web application felt overly clinical and utility-focused. Terms like "report card" evoked academic evaluation and cold grading rather than self-discovery, while generic layout patterns offered little emotional resonance. 
+
+Our core drive for this redesign was to create an inviting, unhurried digital space – a sanctuary that makes reflection feel like a quiet moment of clarity rather than a stressful evaluation. Every design choice was guided by three principles:
+- **Warmth over Evaluation**: Softening the environment so users feel encouraged to be open and candid.
+- **Intentional Rhythm**: Using generous whitespace and grounded typography to slow down the eye and promote deep thought.
+- **Aesthetic Harmony**: Seamlessly pairing visual art with functional UI so the platform feels cohesive and crafted.
 
 ### Scandi-Botanical Aesthetic System
 We anchored the brand in a Scandinavian botanical design system featuring:
 - **Palette**: Deep forest moss green (`#2D4A3E`), soft sage (`#4E7C67`), warm terracotta (`#E8A88A`), and a soft paper-grain sand background (`#EBF3EF` / `#F7F5F0`).
 - **Typography**: Clean serif brand accents paired with modern sans-serif readability for structured reflection frameworks.
-- **Custom Artwork**: A unified illustration suite created using Seedream 5.0 Pro, depicting quiet morning sanctuaries, sunlight pathways, desk reflection setups, and growing saplings.
+- **Custom Artwork**: A unified illustration suite depicting quiet morning sanctuaries, sunlight pathways, desk reflection setups, and growing saplings.
 
-### Core Enhancements & Tooling
-- **Header & Navigation**: Removed full-width top border lines and experimental badges to spotlight a prominent, elegant SVG logo mark (`reflectify-logo-primary.svg`).
+### Core Architecture & Design Enhancements
+- **Header & Navigation**: Stripped out full-width top border lines and experimental badges to spotlight a prominent, elegant SVG logo mark (`reflectify-logo-primary.svg`).
 - **Tool Card Media Banners**: Updated card UI in `script.js` with integrated 180px artwork header banners, micro-hover lifts (`translateY(-2px)`), soft shadows, and full-width primary CTA buttons (`Start reflection →`).
 - **Copy Discipline**: Systematically updated all copy across the app to replace cold "report card" phrasing with warm "reflection summary".
 - **Mobile Responsiveness**: Standardized CTA actions on mobile viewports (`<= 600px`) to full-width stacked columns for touch precision.

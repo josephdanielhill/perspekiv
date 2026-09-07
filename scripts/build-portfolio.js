@@ -190,12 +190,24 @@ function generateProjectPage(entry) {
     .map(t => `<span class="project-tag">${t}</span>`)
     .join('\n        ');
 
-  // Body as paragraph-safe HTML
+  // Body as paragraph-safe HTML with markdown header support
   const bodyHTML = entry.body
     .split('\n\n')
     .map(p => p.trim())
     .filter(p => p)
-    .map(p => `<p class="project-body-text">${p.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>')}</p>`)
+    .map(p => {
+      if (p.startsWith('### ')) {
+        return `<h3 class="project-heading-3">${escapeHtml(p.replace('### ', ''))}</h3>`;
+      }
+      if (p.startsWith('## ')) {
+        return `<h2 class="project-heading-2">${escapeHtml(p.replace('## ', ''))}</h2>`;
+      }
+      if (p.startsWith('- ')) {
+        const items = p.split('\n').map(item => `<li>${item.replace(/^- /, '').replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')}</li>`).join('');
+        return `<ul class="project-bullet-list">${items}</ul>`;
+      }
+      return `<p class="project-body-text">${p.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>')}</p>`;
+    })
     .join('\n        ');
 
   const pageContent = `<!DOCTYPE html>
@@ -294,6 +306,33 @@ function generateProjectPage(entry) {
       line-height: 1.7;
       color: #333;
       margin-bottom: 24px;
+    }
+
+    .project-heading-2 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #1d1d1f;
+      margin: 40px 0 16px;
+      letter-spacing: -0.01em;
+    }
+
+    .project-heading-3 {
+      font-size: 22px;
+      font-weight: 600;
+      color: #1d1d1f;
+      margin: 32px 0 12px;
+      letter-spacing: -0.01em;
+    }
+
+    .project-bullet-list {
+      margin: 0 0 24px 24px;
+      color: #333;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .project-bullet-list li {
+      margin-bottom: 8px;
     }
 
     .project-body-text:last-child {
