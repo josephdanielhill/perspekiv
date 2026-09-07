@@ -22,6 +22,7 @@ Self-reflection is fundamentally vulnerable work. When users step back to review
 The original web application felt overly clinical and utility-focused. Terms like "report card" evoked academic evaluation and cold grading rather than self-discovery, while generic layout patterns offered little emotional resonance. 
 
 Our core drive for this redesign was to create an inviting, unhurried digital space – a sanctuary that makes reflection feel like a quiet moment of clarity rather than a stressful evaluation. Every design choice was guided by three principles:
+
 - **Warmth over Evaluation**: Softening the environment so users feel encouraged to be open and candid.
 - **Intentional Rhythm**: Using generous whitespace and grounded typography to slow down the eye and promote deep thought.
 - **Aesthetic Harmony**: Seamlessly pairing visual art with functional UI so the platform feels cohesive and crafted.

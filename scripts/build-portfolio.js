@@ -195,22 +195,47 @@ function generateProjectPage(entry) {
     .split('\n\n')
     .map(p => p.trim())
     .filter(p => p)
-    .map(p => {
-      if (p.startsWith('### ')) {
-        return `<h3 class="project-heading-3">${escapeHtml(p.replace('### ', ''))}</h3>`;
+    .map(block => {
+      const lines = block.split('\n');
+      const firstLine = lines[0].trim();
+
+      // Check if block starts with heading
+      if (firstLine.startsWith('### ')) {
+        const title = escapeHtml(firstLine.replace('### ', ''));
+        const rest = lines.slice(1).join('\n').trim();
+        const headingHtml = `<h3 class="project-heading-3">${title}</h3>`;
+        if (!rest) return headingHtml;
+
+        if (rest.startsWith('- ')) {
+          const items = rest.split('\n').map(item => {
+            const rawItem = item.replace(/^- /, '');
+            const formatted = escapeHtml(rawItem).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+            return `<li>${formatted}</li>`;
+          }).join('');
+          return `${headingHtml}\n        <ul class="project-bullet-list">${items}</ul>`;
+        }
+
+        return `${headingHtml}\n        <p class="project-body-text">${escapeHtml(rest).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>')}</p>`;
       }
-      if (p.startsWith('## ')) {
-        return `<h2 class="project-heading-2">${escapeHtml(p.replace('## ', ''))}</h2>`;
+
+      if (firstLine.startsWith('## ')) {
+        const title = escapeHtml(firstLine.replace('## ', ''));
+        const rest = lines.slice(1).join('\n').trim();
+        const headingHtml = `<h2 class="project-heading-2">${title}</h2>`;
+        if (!rest) return headingHtml;
+        return `${headingHtml}\n        <p class="project-body-text">${escapeHtml(rest).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>')}</p>`;
       }
-      if (p.startsWith('- ')) {
-        const items = p.split('\n').map(item => {
+
+      if (firstLine.startsWith('- ')) {
+        const items = lines.map(item => {
           const rawItem = item.replace(/^- /, '');
-          const formatted = escapeHtml(rawItem).replace(/&lt;strong&gt;/g, '<strong>').replace(/&lt;\/strong&gt;/g, '</strong>').replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+          const formatted = escapeHtml(rawItem).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
           return `<li>${formatted}</li>`;
         }).join('');
         return `<ul class="project-bullet-list">${items}</ul>`;
       }
-      return `<p class="project-body-text">${p.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>')}</p>`;
+
+      return `<p class="project-body-text">${escapeHtml(block).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>')}</p>`;
     })
     .join('\n        ');
 
