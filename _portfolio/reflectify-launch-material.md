@@ -5,7 +5,7 @@ tags: [brand-assets, launch, product-design, marketing]
 status: launched
 images: ["/portfolio/reflectify-launch-material/reflectify-launch-going-live.png", "/portfolio/reflectify-launch-material/reflectify-launch-tour.png"]
 brief: "Two high-resolution campaign assets for Reflectify – an offline-first AI self-reflection sanctuary. Hero cards designed in Reflectify's organic botanical visual system with full-bleed nature wallpaper, editorial typography, and model-agnostic workflow guides."
-models: [Google Gemini 2.5 Flash, Anthropic Claude 3.5 Sonnet, OpenAI GPT-4o]
+models: [Google Gemini 3.6 Flash]
 tools: ["HTML/CSS", "Headless Chrome CDP", "Python Pillow", "GitHub Pages", "Node.js"]
 notes:
   - "Both assets share Reflectify's organic design language: Forest Moss (#2D4A3E), Terracotta (#C86D51), Eucalyptus (#8CAE9E), and Warm Sand (#F7F5F0)."
